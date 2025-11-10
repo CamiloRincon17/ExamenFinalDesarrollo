@@ -1,132 +1,133 @@
 <template>
-  <div class="login-container">
-    <div class="row h-100">
-      <!-- Lado izquierdo: texto -->
-      <div class="col-md-6 d-flex justify-content-center align-items-center">
-        <div class="text-white px-5">
-          <h1>Las mejores pelis 🍿</h1>
-          <p>Disfruta del mejor catálogo de películas con nosotros.</p>
-        </div>
-      </div>
+  <div class="split-screen-container">
+    <!-- Left Pane (Image) - Hidden on small screens -->
+    <div class="left-pane d-none d-md-block"></div>
 
-      <!-- Lado derecho: login -->
-      <div class="col-md-6 d-flex justify-content-center align-items-center">
-        <div class="card shadow p-4" style="width:380px;">
-          <h2 class="text-center mb-3">Iniciar Sesión</h2>
+    <!-- Right Pane (Form) -->
+    <div class="right-pane d-flex align-items-center justify-content-center">
+      <div class="form-wrapper">
+        <h2 class="fw-bold mb-3 text-white">¡Qué alegría verte de nuevo!</h2>
+        <h4 class="mb-4 text-white">Entrar</h4>
 
-          <div v-if="alert.message" :class="`alert alert-${alert.type}`" role="alert">
-            {{ alert.message }}
+        <form @submit.prevent="handleLogin">
+          <div class="mb-3">
+            <label for="email" class="form-label text-white">Tu correo</label>
+            <input
+              v-model="email"
+              type="email"
+              class="form-control bg-dark text-white border-0"
+              id="email"
+              placeholder="correo@ejemplo.com"
+              required
+            />
           </div>
 
-          <form @submit.prevent="login">
-            <div class="mb-3">
-              <label for="username" class="form-label">Usuario</label>
-              <input id="username" v-model="username" type="text" class="form-control" />
+          <div class="mb-3">
+            <label for="password" class="form-label text-white">Tu contraseña</label>
+            <div class="input-group">
+              <input
+                v-model="password"
+                :type="showPassword ? 'text' : 'password'"
+                class="form-control bg-dark text-white border-0"
+                id="password"
+                placeholder="••••••••"
+                required
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                @click="togglePassword"
+              >
+                👁
+              </button>
             </div>
+          </div>
 
-            <div class="mb-3">
-              <label for="password" class="form-label">Contraseña</label>
-              <input id="password" v-model="password" type="password" class="form-control" />
-            </div>
+          <div class="mb-3 text-end">
+            <a href="#" class="text-success text-decoration-none">¿Olvidaste la contraseña?</a>
+          </div>
 
-            <button class="btn btn-success w-100" type="submit">Entrar</button>
-          </form>
-        </div>
+          <button type="submit" class="btn btn-custom w-100 mb-3">ENTRAR</button>
+
+          <p class="text-center text-white">
+            ¿No tienes cuenta? <a href="#" class="text-success">Crear cuenta</a>
+          </p>
+        </form>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import usuarios from '../data/usuarios.json' // archivo local con usuarios
+<script>
+export default {
+  name: "LoginView",
+  data() {
+    return {
+      email: "",
+      password: "",
+      showPassword: false,
+    };
+  },
+  methods: {
+    togglePassword() {
+      this.showPassword = !this.showPassword;
+    },
+    handleLogin() {
+      // Credenciales quemadas (solo para desarrollo)
+      const hardcodedEmail = "user@example.com";
+      const hardcodedPassword = "password123";
 
-const username = ref('')
-const password = ref('')
-const router = useRouter()
-
-const alert = ref({ message: '', type: 'danger' })
-
-const login = () => {
-  if (!username.value || !password.value) {
-    alert.value = { message: 'Por favor ingresa usuario y contraseña', type: 'warning' }
-    return
-  }
-
-  const user = usuarios.find(u => u.username === username.value && u.password === password.value)
-
-  if (user) {
-    // Guardar sesión básica
-    localStorage.setItem('isAuthenticated', 'true')
-    localStorage.setItem('userRole', user.role || 'user')
-    localStorage.setItem('username', user.username)
-
-    // Redirigir según rol
-    if (user.role === 'admin') {
-      router.push('/dashboard')
-    } else {
-      router.push('/productos')
-    }
-  } else {
-    alert.value = { message: 'Credenciales inválidas', type: 'danger' }
-    // limpiar alerta luego de 3s
-    setTimeout(() => { alert.value = { message: '', type: 'danger' } }, 3000)
-  }
-}
+      if (this.email === hardcodedEmail && this.password === hardcodedPassword) {
+        alert("Inicio de sesión exitoso!");
+        this.$router.push('/home'); // Redirige a la vista de Home
+      } else {
+        alert("Credenciales incorrectas. Por favor, inténtalo de nuevo.");
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
-.login-container {
-  background-image: url('https://i.pinimg.com/736x/91/1f/ae/911faeb1679a0530cb80855caa837704.jpg');
+.split-screen-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #121218; /* Fallback for the form side */
+}
+
+.left-pane {
+  flex: 1;
+  background-image: url("https://cloudfront-us-east-1.images.arcpublishing.com/grupoclarin/QNUQ5DOKIVG7JLNGJJFJNAQLSM.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
+}
+
+.right-pane {
+  flex: 1;
+  padding: 3rem;
+}
+
+.form-wrapper {
+  max-width: 450px;
   width: 100%;
-  position: fixed; /* Añadido para fijar el fondo */
-  top: 0;
-  left: 0;
 }
 
-.row {
-  margin: 0;
-  width: 100%;
-  min-height: 100vh;
+.btn-custom {
+  background-color: #00ff90;
+  color: #000;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-.col-md-6 {
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.btn-custom:hover {
+  background-color: #00cc72;
 }
 
-.text-white {
-  text-align: center;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  margin-bottom: 1rem;
-}
-
-p {
-  font-size: 1.2rem;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-}
-
-.card {
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
-  width: 100%;
-  max-width: 400px;
+/* On smaller screens, the right pane takes the full width */
+@media (max-width: 767.98px) {
+  .right-pane {
+    width: 100%;
+  }
 }
 </style>
