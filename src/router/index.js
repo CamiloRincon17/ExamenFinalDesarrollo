@@ -15,7 +15,7 @@ const routes = [
       { path: 'productos', name: 'dashboard-productos', component: ProductoView }
     ]
   },
-  { path: '/productos', name: 'public-productos', component: ProductoView, meta: { requiresAuth: true } } // si quieres accesible fuera del dashboard
+  { path: '/productos', name: 'public-productos', component: ProductoView } // Accesible sin autenticación
 ]
 
 const router = createRouter({

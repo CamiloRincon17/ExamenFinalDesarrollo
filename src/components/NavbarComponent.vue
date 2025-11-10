@@ -1,19 +1,27 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Cinema Admin</a>
+      <router-link class="navbar-brand" to="/productos">Cinema Admin</router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
+          <li v-if="isAuthenticated" class="nav-item">
             <span class="nav-link">{{ username }}</span>
           </li>
-          <li class="nav-item">
+          <li v-if="isAuthenticated && userRole === 'admin'" class="nav-item">
+            <router-link class="nav-link" to="/dashboard">Dashboard</router-link>
+          </li>
+          <li v-if="isAuthenticated" class="nav-item">
             <button class="btn btn-outline-light" @click="logout">
               Cerrar Sesión
             </button>
+          </li>
+          <li v-if="!isAuthenticated" class="nav-item">
+            <router-link class="btn btn-outline-light" to="/login">
+              Iniciar Sesión
+            </router-link>
           </li>
         </ul>
       </div>
@@ -22,28 +30,57 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 export default {
   name: 'NavbarComponent',
   setup() {
     const router = useRouter()
+    const route = useRoute()
     const username = ref('')
+    const isAuthenticated = ref(false)
+    const userRole = ref('')
+
+    const updateAuthState = () => {
+      isAuthenticated.value = localStorage.getItem('isAuthenticated') === 'true'
+      userRole.value = localStorage.getItem('userRole') || ''
+      username.value = localStorage.getItem('username') || 'Usuario'
+    }
+
+    // Escuchar cambios en el almacenamiento local (para cambios en otras pestañas)
+    const handleStorageChange = (e) => {
+      if (e.key === 'isAuthenticated' || e.key === 'userRole' || e.key === 'username') {
+        updateAuthState()
+      }
+    }
+
+    // Observar cambios en la ruta para actualizar el estado
+    watch(() => route.path, () => {
+      updateAuthState()
+    })
 
     onMounted(() => {
-      username.value = localStorage.getItem('username') || 'Usuario'
+      updateAuthState()
+      window.addEventListener('storage', handleStorageChange)
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('storage', handleStorageChange)
     })
 
     const logout = () => {
       localStorage.removeItem('isAuthenticated')
       localStorage.removeItem('userRole')
       localStorage.removeItem('username')
-      router.push('/login')
+      updateAuthState()
+      router.push('/productos')
     }
 
     return {
       username,
+      isAuthenticated,
+      userRole,
       logout
     }
   }
