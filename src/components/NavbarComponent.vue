@@ -12,6 +12,9 @@
             <span class="nav-link">{{ username }}</span>
           </li>
           <li v-if="isAuthenticated && userRole === 'admin'" class="nav-item">
+            <router-link class="nav-link" to="/productos">Página Principal</router-link>
+          </li>
+          <li v-if="isAuthenticated && userRole === 'admin'" class="nav-item">
             <router-link class="nav-link" to="/dashboard">Dashboard</router-link>
           </li>
           <li v-if="isAuthenticated" class="nav-item">

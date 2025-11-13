@@ -10,8 +10,8 @@ const routes = [
     path: '/dashboard',
     component: DashboardLayout,
     meta: { requiresAuth: true, role: 'admin' },
+    redirect: '/dashboard/productos',
     children: [
-      { path: '', redirect: 'productos' },
       { path: 'productos', name: 'dashboard-productos', component: ProductoView }
     ]
   },

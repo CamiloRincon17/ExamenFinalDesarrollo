@@ -1,5 +1,54 @@
 <template>
   <div class="container-fluid p-4">
+    <!-- Carrusel de películas destacadas -->
+    <div v-if="featuredMovies.length > 0" class="mb-5">
+      <h3 class="mb-3">Películas Destacadas</h3>
+      <div id="carouselMovies" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button
+            v-for="(movie, index) in featuredMovies"
+            :key="movie.id"
+            type="button"
+            :data-bs-target="'#carouselMovies'"
+            :data-bs-slide-to="index"
+            :class="{ active: index === 0 }"
+            :aria-label="'Slide ' + (index + 1)"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div
+            v-for="(movie, index) in featuredMovies"
+            :key="movie.id"
+            :class="['carousel-item', { active: index === 0 }]"
+          >
+            <div class="carousel-content">
+              <img
+                :src="movie.poster || 'https://via.placeholder.com/800x400'"
+                class="d-block w-100 carousel-image"
+                :alt="movie.title"
+              />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>{{ movie.title }}</h5>
+                <p>{{ movie.genre }} • {{ movie.year }}</p>
+                <p class="price-info">
+                  Venta: ${{ movie.salePrice?.toFixed(2) || '0.00' }} | 
+                  Alquiler: ${{ movie.rentPrice?.toFixed(2) || '0.00' }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMovies" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselMovies" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h2>Catálogo de Películas</h2>
       <button v-if="userRole === 'admin'" class="btn btn-danger" @click="openModal()">+ Añadir película</button>
@@ -83,15 +132,21 @@ const selected = ref(null)
 const userRole = ref(localStorage.getItem('userRole'))
 const genres = ref(['Acción', 'Comedia', 'Drama', 'Ciencia Ficción', 'Terror', 'Suspenso', 'Animación'])
 
+// Películas destacadas para el carrusel (primeras 5 películas)
+const featuredMovies = ref([])
+
 const loadMovies = async () => {
   loading.value = true
   try {
     const res = await getMovies()
     movies.value = Array.isArray(res.data) ? res.data : []
+    // Seleccionar las primeras 5 películas para el carrusel
+    featuredMovies.value = movies.value.slice(0, 5)
   } catch (e) {
     console.error('Error al cargar películas:', e)
     alert(`Error al cargar películas: ${e.message || 'Verifique que el servidor JSON esté corriendo en el puerto 3000'}`)
     movies.value = []
+    featuredMovies.value = []
   } finally {
     loading.value = false
   }
@@ -138,3 +193,55 @@ const onSaved = async () => {
 
 onMounted(loadMovies)
 </script>
+
+<style scoped>
+.carousel-content {
+  position: relative;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.carousel-image {
+  height: 500px;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  bottom: 30px;
+}
+
+.carousel-caption h5 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.price-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffc107;
+}
+
+@media (max-width: 768px) {
+  .carousel-image {
+    height: 300px;
+  }
+  
+  .carousel-caption h5 {
+    font-size: 1.5rem;
+  }
+  
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+}
+</style>
