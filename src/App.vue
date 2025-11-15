@@ -21,7 +21,7 @@ export default {
   setup() {
     const route = useRoute()
     const isLoginRoute = computed(() => {
-      return route?.name === 'login'
+      return route?.name === 'Login'
     })
     
     return {

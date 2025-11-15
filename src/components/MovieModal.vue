@@ -1,4 +1,4 @@
-<!-- aqui se muesta lo de editar la pelicual -->
+<!-- aqui se muesta lo de editar la pelicula -->
 <script setup>
 import { ref, watch, computed } from 'vue'
 

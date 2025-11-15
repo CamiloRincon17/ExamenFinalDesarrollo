@@ -1,6 +1,6 @@
 <!-- navbar y sus funcinalidades -->
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success ">
     <div class="container-fluid">
       <!-- se linkea el nombre como si fuera un boton para mandarte a la parte de productos -->
       <router-link class="navbar-brand" to="/productos">Film Galaxy</router-link>

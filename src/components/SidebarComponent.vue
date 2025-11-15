@@ -1,8 +1,8 @@
 <template>
-  <div class="sidebar p-3">
+  <div class="sidebar p-3 ">
     <div class="d-flex flex-column h-100">
       <h3 class="mb-4">Estas en Admin</h3>
-      <nav class="nav flex-column">
+      <nav class="nav flex-column ">
         <router-link class="sidebar-link" to="/dashboard">Dashboard</router-link>
 
         <router-link class="sidebar-link" to="/productos">Página Principal</router-link>
@@ -44,7 +44,7 @@ const logout = () => {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 .sidebar-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 255, 123, 0.1);
   color: #fff;
 }
 .router-link-exact-active {
