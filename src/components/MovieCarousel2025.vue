@@ -32,7 +32,7 @@
       <!-- Contenido del Carrusel -->
       <div class="carousel-inner">
         <div v-for="(movie, index) in movies" :key="movie.id" class="carousel-item" :class="{ active: index === 0 }">
-          <img :src="movie.image || 'https://via.placeholder.com/800x400?text=Próximo+Estreno'" class="d-block w-100 carousel-img" :alt="movie.title" />
+          <img :src="movie.poster || 'https://via.placeholder.com/800x400?text=Próximo+Estreno'" class="d-block w-100 carousel-img" :alt="movie.title" />
 
           <div class="carousel-caption d-none d-md-block">
             <h5>{{ movie.title }}</h5>

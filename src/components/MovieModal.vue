@@ -140,7 +140,7 @@ const descriptionCharCount = computed(() => formData.value.description?.length |
 
             <!-- URL Imagen -->
             <div class="mb-3">
-              <label class="form-label fw-bold">URL de poster</label>
+              <label class="form-label fw-bold">URL de carrusel </label>
               <input v-model="formData.poster" type="text" class="form-control" :class="{ 'is-invalid': errors.poster }"
                 placeholder="https://ejemplo.com/imagen.jpg">
               <div v-if="errors.poster" class="invalid-feedback">{{ errors.poster }}</div>

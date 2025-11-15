@@ -4,28 +4,31 @@
       "id": "1",
       "title": "Venom",
       "genre": "Acción",
-      "year": 2025,
+      "year": 2020,
       "price": 35000,
-      "image": "https://static0.colliderimages.com/wordpress/wp-content/uploads/2021/03/Venom-Let-There-Be-Carnage.jpg?w=1200&h=675&fit=crop",
-      "description": "Un periodista se une a un simbionte alienígena para luchar contra el crimen."
+      "image": "https://mx.web.img3.acsta.net/c_310_420/pictures/21/08/31/16/11/0282026.jpg",
+      "description": "Un periodista se une a un simbionte alienígena para luchar contra el crimen.",
+      "poster": "https://respawn.fi/wp-content/uploads/2018/10/venom-arvostelu.jpg"
     },
     {
       "id": "2",
-      "title": "Bad Boys",
-      "genre": "Acción",
+      "title": "Entrenando a tu Dragon ",
+      "genre": "Ciencia Ficción",
       "year": 2025,
       "price": 40000,
-      "image": "https://i.ytimg.com/vi/j3ZAF5bPVAs/maxresdefault.jpg",
-      "description": "Dos detectives de Miami se enfrentan a un nuevo caso lleno de acción y comedia."
+      "image": "https://m.media-amazon.com/images/M/MV5BMzEzMTgwNzktYTk4ZC00ZTQ1LTllZGYtNzY4MTk2ZDM1MzA0XkEyXkFqcGc@._V1_.jpg",
+      "description": "Dos detectives de Miami se enfrentan a un nuevo caso lleno de acción y comedia.",
+      "poster": "https://cartelescine.wordpress.com/wp-content/uploads/2024/11/comoentrenardragonbanner.jpg"
     },
     {
       "id": "9a39",
-      "title": "el padrino",
-      "genre": "Drama",
-      "year": 2023,
+      "title": "Jurassic World Rebirth",
+      "genre": "Acción",
+      "year": 2025,
       "price": 15000,
-      "image": "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1PhCaIg.jpg",
-      "description": "Un clásico del cine sobre la mafia y la familia Corleone."
+      "image": "https://play-lh.googleusercontent.com/bubcXCF7Z9jiy67c23vCN89NYunfRPvAUHTSAcczOZDRt-Np9g5wQi5ASkpu8Js0rpTn_dFFOpQqC5sTM1Wa",
+      "description": "Un clásico del cine sobre la mafia y la familia Corleone.",
+      "poster": "https://combogamer.com/wp-content/uploads/2025/07/Jurassic-World-Rebirth-Banner.jpg"
     },
     {
       "id": "4",
@@ -33,7 +36,7 @@
       "genre": "Ciencia Ficción",
       "year": 2014,
       "price": 55000,
-      "image": "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCUYxFMhhLpt.jpg",
+      "image": "https://m.media-amazon.com/images/M/MV5BYzdjMDAxZGItMjI2My00ODA1LTlkNzItOWFjMDU5ZDJlYWY3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
       "description": "Un equipo de exploradores viaja a través de un agujero de gusano en el espacio en un intento de asegurar la supervivencia de la humanidad."
     },
     {
@@ -42,7 +45,7 @@
       "genre": "Drama",
       "year": 2016,
       "price": 30000,
-      "image": "https://image.tmdb.org/t/p/w500/qA5GFD63z601Yg8Pz21v5b0d06.jpg",
+      "image": "https://play-lh.googleusercontent.com/UAbx5rMmCN62V4cfFm9CTU72rElMTITwyp4WEcGvgSEL8t0NABuDWtpj01v99Gv9DX8O",
       "description": "Una aspirante a actriz y un músico de jazz se enamoran en Los Ángeles."
     },
     {
@@ -52,8 +55,8 @@
       "year": 2025,
       "releaseDate": "Julio 2025",
       "price": 60000,
-      "image": "https://image.tmdb.org/t/p/w500/kHlX3oqdD4Vccg2J1rY1c0y9b8.jpg",
-      "poster": "https://live.staticflickr.com/65535/54647955041_115e6147bf_b.jpg",
+      "image": "https://m.media-amazon.com/images/M/MV5BNGYzMmUxYWYtZTk0Yy00ZWQ3LWIyODktNGFjYzVlMDZmMDM2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "poster": "https://film-prof.com/wp-content/uploads/2025/07/mms24uh4asgkchtffqaowfnfdno-1.jpg",
       "description": "Un nuevo Superman para una nueva era, reiniciando el universo DC."
     },
     {
@@ -98,22 +101,22 @@
     },
     {
       "id": "11",
-      "title": "The Matrix",
+      "title": "Titanes del Pacifico",
       "genre": "Ciencia Ficción",
       "year": 1999,
       "price": 42000,
-      "image": "https://image.tmdb.org/t/p/w500/f89JAYsAFYdsEVaMvudbbG1wNfl.jpg",
+      "image": "https://m.media-amazon.com/images/M/MV5BMTY3MTI5NjQ4Nl5BMl5BanBnXkFtZTcwOTU1OTU0OQ@@._V1_.jpg",
       "poster": "https://image.tmdb.org/t/p/w500/f89JAYsAFYdsEVaMvudbbG1wNfl.jpg",
       "description": "Un programador de computadoras descubre que su realidad es una simulación y se une a una rebelión para liberar a la humanidad."
     },
     {
       "id": "12",
-      "title": "The Silence of the Lambs",
-      "genre": "Thriller",
-      "year": 1991,
+      "title": "Avatar",
+      "genre": "Ciencia Ficción",
+      "year": 2025,
       "price": 37000,
-      "image": "https://image.tmdb.org/t/p/w500/uS9mCrhS9a8a1S5vCeI0aYx2A9b.jpg",
-      "poster": "https://image.tmdb.org/t/p/w500/uS9mCrhS9a8a1S5vCeI0aYx2A9b.jpg",
+      "image": "https://m.media-amazon.com/images/M/MV5BZDYxY2I1OGMtN2Y4MS00ZmU1LTgyNDAtODA0MzAyYjI0N2Y2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "poster": "https://revista-influencer.com/wp-content/uploads/2025/09/20250729-avatar3-feature.webp",
       "description": "Una joven cadete del FBI debe buscar la ayuda de un brillante pero demente asesino en serie para atrapar a otro asesino."
     },
     {
@@ -122,7 +125,7 @@
       "genre": "Animación",
       "year": 2001,
       "price": 35000,
-      "image": "https://image.tmdb.org/t/p/w500/39wmItIW2asRMyFFSQD2g6I96Ie.jpg",
+      "image": "https://m.media-amazon.com/images/M/MV5BNTEyNmEwOWUtYzkyOC00ZTQ4LTllZmUtMjk0Y2YwOGUzYjRiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
       "poster": "https://image.tmdb.org/t/p/w500/39wmItIW2asRMyFFSQD2g6I96Ie.jpg",
       "description": "Durante la mudanza de su familia a los suburbios, una niña de 10 años deambula por un mundo gobernado por dioses, brujas y espíritus."
     },
@@ -130,10 +133,10 @@
       "id": "14",
       "title": "Parasite",
       "genre": "Thriller",
-      "year": 2025,
+      "year": 2019,
       "price": 48000,
       "image": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-      "poster": "https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+      "poster": "https://media.gq.com.mx/photos/5e163a93a3ee270008aa3501/16:9/w_2560%2Cc_limit/parasite-datos-de-la-pelicula-que-esta-ganando-todos-los-premios-dos.jpg",
       "description": "La codicia y la discriminación de clase amenazan la recién formada relación simbiótica entre la rica familia Park y el indigente clan Kim."
     },
     {
@@ -152,7 +155,7 @@
       "genre": "Animación",
       "year": 1994,
       "price": 30000,
-      "image": "https://image.tmdb.org/t/p/w500/sKCr78MXSLix2gjV3fC9sn6M7c.jpg",
+      "image": "https://cdn-images.dzcdn.net/images/cover/db3b345f0d8543782fe76add826e43ed/0x1900-000000-80-0-0.jpg",
       "poster": "https://image.tmdb.org/t/p/w500/sKCr78MXSLix2gjV3fC9sn6M7c.jpg",
       "description": "Un joven león príncipe es exiliado después de la muerte de su padre, solo para aprender el verdadero significado de la responsabilidad y la valentía."
     },
@@ -178,12 +181,12 @@
     },
     {
       "id": "19",
-      "title": "The Shining",
+      "title": "Depredador ",
       "genre": "Terror",
-      "year": 1980,
+      "year": 2025,
       "price": 36000,
-      "image": "https://image.tmdb.org/t/p/w500/5i3O2g4KTw5saR239yL339L1vty.jpg",
-      "poster": "https://image.tmdb.org/t/p/w500/5i3O2g4KTw5saR239yL339L1vty.jpg",
+      "image": "https://pics.filmaffinity.com/Predator_Badlands-996412260-large.jpg",
+      "poster": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2025/10/predator-badlands-2025-4371940.jpg",
       "description": "Una familia se dirige a un hotel aislado durante el invierno, donde una presencia siniestra influye en el padre hacia la violencia."
     },
     {
@@ -242,7 +245,7 @@
       "genre": "Acción",
       "year": 2021,
       "price": 58000,
-      "image": "https://image.tmdb.org/t/p/w500/1g0dhYtq4irDe3GPPDuN825G0wF.jpg",
+      "image": "https://es.web.img3.acsta.net/pictures/22/09/06/11/05/4230327.jpg",
       "poster": "https://image.tmdb.org/t/p/w500/1g0dhYtq4irDe3GPPDuN825G0wF.jpg",
       "description": "Con la identidad de Spider-Man ahora revelada, Peter Parker pide ayuda al Doctor Strange. Cuando un hechizo sale mal, comienzan a aparecer peligrosos enemigos de otros mundos."
     },
@@ -250,11 +253,21 @@
       "id": "26",
       "title": "Dune",
       "genre": "Ciencia Ficción",
-      "year": 2025,
+      "year": 2020,
       "price": 52000,
       "image": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
-      "poster": "https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+      "poster": "https://i.blogs.es/2af678/dune-cartel/1366_2000.jpeg",
       "description": "Adaptación cinematográfica de la novela de ciencia ficción de Frank Herbert, sobre el hijo de una familia noble a quien se le confía la protección del activo más valioso y el elemento más vital de la galaxia."
+    },
+    {
+      "id": "93a1",
+      "title": "F1 la pelicula",
+      "genre": "Acción",
+      "year": 2025,
+      "price": 80,
+      "image": "https://m.media-amazon.com/images/S/pv-target-images/5de02b8f5586efd622669d8d46ff478f234900164daa47a936b3dd52c0cc3d34.jpg",
+      "description": "",
+      "poster": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifoeZmwDylmbQ4XjkPHbqVglC9PC_-BDoVjqDw4A91N-hJWlKBHKI6gsMZSer0rpqrpbJ-rbfg3aloE0BY9Uh-9WrQh4UhswIFoQ1NgojRr4VVb6w6gJKB40Brbas4fZTBTmE8MKDolD1-UrxcKL0oXPEvJwvHUJrUfHQ0W9f8qRRjh67YloVSX5OSTWA/s1018/f1-la-pelicula-critica.jpg"
     }
   ]
 }
