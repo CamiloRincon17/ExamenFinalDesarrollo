@@ -102,7 +102,8 @@ const descriptionCharCount = computed(() => formData.value.description?.length |
             <!-- Título -->
             <div class="mb-3">
               <label class="form-label fw-bold">Título <span class="text-danger">*</span></label>
-              <input v-model="formData.title" type="text" class="form-control" :class="{ 'is-invalid': errors.title }" placeholder="Ej: El Padrino" maxlength="100">
+              <input v-model="formData.title" type="text" class="form-control" :class="{ 'is-invalid': errors.title }"
+                placeholder="Ej: El Padrino" maxlength="100">
               <div v-if="errors.title" class="invalid-feedback">{{ errors.title }}</div>
             </div>
 
@@ -119,7 +120,9 @@ const descriptionCharCount = computed(() => formData.value.description?.length |
               <!-- Año -->
               <div class="col-md-5 mb-3">
                 <label class="form-label fw-bold">Año <span class="text-danger">*</span></label>
-                <input v-model.number="formData.year" type="number" class="form-control" :class="{ 'is-invalid': errors.year }" placeholder="2024" min="1900" :max="new Date().getFullYear() + 1">
+                <input v-model.number="formData.year" type="number" class="form-control"
+                  :class="{ 'is-invalid': errors.year }" placeholder="2024" min="1900"
+                  :max="new Date().getFullYear() + 1">
                 <div v-if="errors.year" class="invalid-feedback">{{ errors.year }}</div>
               </div>
             </div>
@@ -129,23 +132,32 @@ const descriptionCharCount = computed(() => formData.value.description?.length |
               <label class="form-label fw-bold">Precio (COP) <span class="text-danger">*</span></label>
               <div class="input-group" :class="{ 'is-invalid': errors.price }">
                 <span class="input-group-text">$</span>
-                <input v-model.number="formData.price" type="number" class="form-control" :class="{ 'is-invalid': errors.price }" placeholder="15000" step="100" min="0">
+                <input v-model.number="formData.price" type="number" class="form-control"
+                  :class="{ 'is-invalid': errors.price }" placeholder="15000" step="100" min="0">
               </div>
               <div v-if="errors.price" class="invalid-feedback">{{ errors.price }}</div>
             </div>
 
             <!-- URL Imagen -->
             <div class="mb-3">
+              <label class="form-label fw-bold">URL de poster</label>
+              <input v-model="formData.poster" type="text" class="form-control" :class="{ 'is-invalid': errors.poster }"
+                placeholder="https://ejemplo.com/imagen.jpg">
+              <div v-if="errors.poster" class="invalid-feedback">{{ errors.poster }}</div>
+              <small class="form-text text-muted">Opcional. Se usará una imagen por defecto si se deja vacío.</small>
+            </div>
+            <div class="mb-3">
               <label class="form-label fw-bold">URL de Imagen</label>
-              <input v-model="formData.image" type="text" class="form-control" :class="{ 'is-invalid': errors.image }" placeholder="https://ejemplo.com/imagen.jpg">
+              <input v-model="formData.image" type="text" class="form-control" :class="{ 'is-invalid': errors.image }"
+                placeholder="https://ejemplo.com/imagen.jpg">
               <div v-if="errors.image" class="invalid-feedback">{{ errors.image }}</div>
               <small class="form-text text-muted">Opcional. Se usará una imagen por defecto si se deja vacío.</small>
             </div>
-
             <!-- Descripción -->
             <div class="mb-3">
               <label class="form-label fw-bold">Descripción</label>
-              <textarea v-model="formData.description" class="form-control" rows="3" placeholder="Descripción breve de la película..." maxlength="500"></textarea>
+              <textarea v-model="formData.description" class="form-control" rows="3"
+                placeholder="Descripción breve de la película..." maxlength="500"></textarea>
               <small class="form-text text-muted text-end d-block">{{ descriptionCharCount }} / 500</small>
             </div>
           </form>
@@ -153,7 +165,8 @@ const descriptionCharCount = computed(() => formData.value.description?.length |
 
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" @click="emit('close')">Cancelar</button>
-          <button type="button" class="btn btn-primary" @click="handleSubmit">{{ movie ? '💾 Actualizar' : '➕ Crear' }}</button>
+          <button type="button" class="btn btn-primary" @click="handleSubmit">{{ movie ? '💾 Actualizar' : '➕ Crear'
+            }}</button>
         </div>
       </div>
     </div>
