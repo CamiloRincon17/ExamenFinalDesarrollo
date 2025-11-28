@@ -153,6 +153,20 @@
             />
           </div>
 
+          <div class="mb-3">
+            <label for="accessCode" class="form-label text-white">
+              Código de acceso <span class="text-muted">(opcional)</span>
+            </label>
+            <input
+              v-model="registerForm.accessCode"
+              type="text"
+              class="form-control bg-dark text-white border-0"
+              id="accessCode"
+              placeholder="ADMIN2025 o SUPER2025"
+            />
+            <small class="text-muted">Dejar vacío para cuenta regular</small>
+          </div>
+
           <button type="submit" class="btn btn-custom w-100 mb-2">CREAR CUENTA</button>
           <button type="button" @click="showRegisterModal = false" class="btn btn-secondary w-100">CANCELAR</button>
         </form>
@@ -179,7 +193,8 @@ export default {
         name: '',
         email: '',
         password: '',
-        passwordConfirm: ''
+        passwordConfirm: '',
+        accessCode: '' // Código para asignar rol admin o superadmin
       },
       registerAlert: { message: '', type: 'danger' } // Alertas del modal de registro
     };
@@ -268,12 +283,23 @@ export default {
       }
 
       try {
+        // Determinar el rol según el código de acceso
+        const ADMIN_CODE = "ADMIN2025"
+        const SUPERADMIN_CODE = "SUPER2025"
+        
+        let userRole = 'user' // Por defecto
+        if (this.registerForm.accessCode === SUPERADMIN_CODE) {
+          userRole = 'superadmin'
+        } else if (this.registerForm.accessCode === ADMIN_CODE) {
+          userRole = 'admin'
+        }
+
         // Crear el nuevo usuario en la API
         const newUser = {
           username: this.registerForm.email,
           password: this.registerForm.password,
           name: this.registerForm.name,
-          role: 'user' // Por defecto, los nuevos usuarios tienen rol 'user'
+          role: userRole
         }
 
         await registerUser(newUser)
@@ -283,12 +309,16 @@ export default {
         
         // Guardar sesión automáticamente
         localStorage.setItem('isAuthenticated', 'true')
-        localStorage.setItem('userRole', 'user')
+        localStorage.setItem('userRole', userRole)
         localStorage.setItem('username', newUser.username)
 
-        // Redirigir después de 2 segundos
+        // Redirigir según el rol
         setTimeout(() => {
-          this.$router.push('/productos')
+          if (userRole === 'admin' || userRole === 'superadmin') {
+            this.$router.push('/dashboard')
+          } else {
+            this.$router.push('/productos')
+          }
         }, 2000)
       } catch (error) {
         console.error('Error en registro:', error)
