@@ -1,4 +1,4 @@
- <!-- footer funciona como footer -->
+<!-- footer funciona como footer -->
 <template>
   <footer class="footer mt-auto py-3 bg-success">
     <div class="container text-center">
@@ -17,4 +17,3 @@ export default {
   color: rgb(255, 255, 255);
 }
 </style>
->
